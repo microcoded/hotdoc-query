@@ -2,6 +2,12 @@ import requests
 from time import sleep
 from termcolor import colored
 
+# ADJUST THIS VALUE AS YOU PLEASE
+# Leaving it on 60 is a good balance of not being ratelimited
+# and being able to get an appointment. (It has worked!)
+# Not recommended to touch this.
+sleeptime = 60
+
 # Get info from user
 # HotDoc uses dashes (-) for spaces, so we replace if they exist
 # Also uses lowercase for location names.
@@ -46,8 +52,8 @@ while True:
     # Print the name of each clinic to the console.
     print(colored('Location:', 'white'), colored(result['name'], 'magenta'))
     
-  # Sleep for 60 seconds because who knows what sort of limits we'll reach
+  # Sleep for some seconds because who knows what sort of limits we'll reach
   print('')
   print(colored("===== Wait 60 seconds for the next refresh =====", "red", attrs=['bold']))
   print('')
-  sleep(60)
+  sleep(sleeptime)
