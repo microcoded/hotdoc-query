@@ -48,10 +48,14 @@ while True:
   
   # Every clinic
   results = response["clinics"]
+  
   for result in results:
     # Print the name of each clinic to the console.
     print(colored('Location:', 'white'), colored(result['name'], 'magenta'))
-    
+
+  if (len(results) == 0): 
+    print(colored('None found', 'white', 'on_red', attrs=['bold']))
+   
   # Sleep for some seconds because who knows what sort of limits we'll reach
   print('')
   print(colored("===== Wait 60 seconds for the next refresh =====", "red", attrs=['bold']))
